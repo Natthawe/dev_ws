@@ -1,22 +1,13 @@
-# Create a new workspace
-`mkdir -p ~/dev_ws/src`
-
-git clone -b humble https://github.com/ros/ros_tutorials.git
-cd ~/dev_ws/
-
 # Resolve the dependencies
 `rosdep install -i --from-path src --rosdistro humble -y`
 `rosdep install -y -r -q --from-paths src --ignore-src --rosdistro humble`
 `sudo apt update`
 `sudo apt install python3-colcon-common-extensions`
 
-##### Open a new terminal window, and open your .bashrc file:
-`gedit ~/.bashrc`
-##### Add this line of code to the very bottom of the .bashrc file.
-`source ~/dev_ws/install/setup.bash`
-
 # Credit
 Automatic Addison
+
+[3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
 [How to Install Ubuntu and VirtualBox on a Windows PC](https://automaticaddison.com/how-to-install-ubuntu-and-virtualbox-on-a-windows-pc/)
 
