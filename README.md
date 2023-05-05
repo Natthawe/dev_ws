@@ -1,11 +1,14 @@
 # Resolve the dependencies
 `rosdep install -i --from-path src --rosdistro humble -y`
+
 `rosdep install -y -r -q --from-paths src --ignore-src --rosdistro humble`
+
 `sudo apt update`
+
 `sudo apt install python3-colcon-common-extensions`
 
 # Credit
-Automatic Addison
+#### Automatic Addison
 
 [3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
