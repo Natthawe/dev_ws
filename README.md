@@ -8,7 +8,9 @@
 `sudo apt install python3-colcon-common-extensions`
 
 # Credit
-### Automatic Addison
+
+Automatic Addison
+------
 
 [3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
@@ -36,11 +38,16 @@
 
 [Coordinate Frames and Transforms for ROS-based Mobile Robots](https://automaticaddison.com/coordinate-frames-and-transforms-for-ros-based-mobile-robots/)
 
-### Nav2
+
+
+Nav2
+------
 [Setting Up Odometry](https://navigation.ros.org/setup_guides/odom/setup_odom.html)
 
-### REP
+REP
+------
 [coordinate-frames](https://www.ros.org/reps/rep-0105.html#coordinate-frames)
 
-### WIKI
+WIKI
+------
 [Differential wheeled robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot)
