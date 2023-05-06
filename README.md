@@ -26,3 +26,5 @@
 
 [The Ultimate Guide to the ROS 2 Navigation Stack](https://automaticaddison.com/the-ultimate-guide-to-the-ros-2-navigation-stack/)
 
+[How to Create a Simulated Mobile Robot in ROS 2 Using URDF](https://automaticaddison.com/how-to-create-a-simulated-mobile-robot-in-ros-2-using-urdf/)
+
