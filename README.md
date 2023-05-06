@@ -8,7 +8,7 @@
 `sudo apt install python3-colcon-common-extensions`
 
 # Credit
-#### Automatic Addison
+### Automatic Addison
 
 [3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
@@ -28,3 +28,19 @@
 
 [How to Create a Simulated Mobile Robot in ROS 2 Using URDF](https://automaticaddison.com/how-to-create-a-simulated-mobile-robot-in-ros-2-using-urdf/)
 
+[Robot State Publisher vs. Joint State Publisher](https://automaticaddison.com/robot-state-publisher-vs-joint-state-publisher/)
+
+[How to Make a Mobile Robot in Gazebo](https://automaticaddison.com/how-to-make-a-mobile-robot-in-gazebo-ros2-foxy/)
+
+[Set Up the Odometry for a Simulated Mobile Robot in ROS 2](https://automaticaddison.com/set-up-the-odometry-for-a-simulated-mobile-robot-in-ros-2/)
+
+[Coordinate Frames and Transforms for ROS-based Mobile Robots](https://automaticaddison.com/coordinate-frames-and-transforms-for-ros-based-mobile-robots/)
+
+### Nav2
+[Setting Up Odometry](https://navigation.ros.org/setup_guides/odom/setup_odom.html)
+
+### REP
+[coordinate-frames](https://www.ros.org/reps/rep-0105.html#coordinate-frames)
+
+### WIKI
+[Differential wheeled robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot)

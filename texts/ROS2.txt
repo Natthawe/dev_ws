@@ -1,0 +1,105 @@
+1) Install ubuntu 22.04
+2) Install ROS humble
+3) Install navigation2
+	sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-turtlebot3*
+4) Install dependencies
+	sudo apt install python3-colcon-common-extensions
+	sudo apt install git
+	sudo apt install terminator
+	sudo apt install ros-humble-rmw-cyclonedds-cpp
+	sudo snap install code --classic
+		extension in vscode
+			ROS
+			C/C++
+			CMake
+----------------------------------------------------
+#bashrc
+put the end line	
+
+source /opt/ros/humble/setup.bash
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+export ROS_DOMAIN_ID=99
+export TURTLEBOT3_MODEL=waffle
+----------------------------------------------------
+
+--------------------------------------------------------------
+In /opt/ros/humble/share/turtlebot3_navigation2/param
+edit
+	robot_model_type: "nav2_amcl::DifferentialMotionModel"
+	save and restart pc
+
+--------------------------------------------------------------
+
+-----------------------------------------------------------------
+#World Turtlebot3
+	ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+	ros2 run turtlebot3_teleop teleop_keyboard
+	rqt_graph
+-----------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------	
+SLAM cartographer
+	ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+	ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+	ros2 run turtlebot3_teleop teleop_keyboard
+	ros2 launch turtlebot3_cartographer cartographer.launch.py use_sim_time:=True	
+	ros2 run nav2_map_server map_saver_cli -f mapturtle
+--------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+Navigation2
+	ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+	ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/mapturtle.yaml
+	
+	ros2 launch turtlebot3_gazebo turtlebot3_house.launch.py
+	ros2 launch turtlebot3_navigation2 navigation2.launch.py use_sim_time:=True map:=maps/my_house.yaml
+---------------------------------------------------------------------------------------	
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+What about map?	
+	nano mapturtle.pgm
+		P5
+        	125 115
+		255
+	nano mapturtle.yaml
+		image: mapturtle.pgm (where the path)
+		mode: trinary
+		resolution: 0.05 (meters per pixel) So for each pixel of this map, we have five centimeters.
+		origin: [-1.25, -2.35, 0]
+		negate: 0 (inverse all of the values)
+		occupied_thresh: 0.65 (setting is that if a pixel has more than 65% chance, so probability of being occupied, then it is considered as occupied)
+		free_thresh: 0.25 (If the probability that the pixel is occupied is less than 25%, then we consider the pixel as not occupied)
+		
+	for each pixel will be a value between zero and 255	
+	resolution : Pixel_x = 125*0.05 Pixel_y = 115*0.05 (dimensions in meters)
+	
+--------------------------------------------------------------------------------------------------------------------------------------------------		
+
+-------------------------------------------------------------------
+Controller
+	edit 
+		controller_frequency: 20.0
+
+global_costmap & local_costmap
+	edit
+		inflation_radius: 0.25
+		robot_radius: 0.3
+
+-------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------
+mkdir -p turtlebot3_ws/src
+cd turtlebot3_ws/src
+git clone -b humble-devel https://github.com/ROBOTIS-GIT/turtlebot3_simulations.git .
+colcon build
+ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py
+
+In .bashrc
+source ~/turtlebot3_ws/install/setup.bash
+----------------------------------------------------------------------------------------
+
+------------------------------------------------------------------------------------------
+build world Gazebo
+https://www.mazegenerator.net/
+
