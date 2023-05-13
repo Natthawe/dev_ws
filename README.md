@@ -12,9 +12,7 @@ output of the [odom] -> [base_footprint] transform by typing the following comma
 `ros2 run tf2_ros tf2_echo odom base_footprint`
 
 # Credit
-
 Automatic Addison
-------
 
 [3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
