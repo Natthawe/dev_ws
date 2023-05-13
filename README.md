@@ -22,7 +22,9 @@ open file:
 
 <!-- ![discription](tf2_tools/frames_2023-05-13_10.18.15.pdf) -->
 
-![](https://github.com/Natthawe/dev_ws/blob/master/tf2_tools/frames_2023-05-13_10.18.15.pdf)
+<p align="center">
+<img src="tf2_tools/frames_2023-05-13_10.18.15.pdf" alt="frame" width="600"/>
+</p>
 
 # Credit
 Automatic Addison
