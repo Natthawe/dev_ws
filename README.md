@@ -17,7 +17,10 @@ To see the coordinate frames, type the following command in a terminal window.
 open file:
     `evince frames.pdf`
 
-![discription](tf2_tools/frames_2023-05-13_10.18.15.pdf)
+<!-- ![discription](tf2_tools/frames_2023-05-13_10.18.15.pdf) -->
+
+<object data="/tf2_tools/frames_2023-05-13_10.18.15.pdf" type="application/pdf" iframe width="100%" height="800" src="path-to-pdf"> 
+</object>
 
 # Credit
 Automatic Addison
