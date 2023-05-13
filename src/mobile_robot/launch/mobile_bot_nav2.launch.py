@@ -236,8 +236,8 @@ def generate_launch_description():
   ld.add_action(start_robot_state_publisher_cmd)
   ld.add_action(start_rviz_cmd)
   ld.add_action(start_ros2_navigation_cmd)
-  # ld.add_action(start_lifecycle_manager_cmd)
-  # ld.add_action(start_map_server_cmd)
-  # ld.add_action(start_costmap_filter_info_server_cmd)
+  ld.add_action(start_lifecycle_manager_cmd)
+  ld.add_action(start_map_server_cmd)
+  ld.add_action(start_costmap_filter_info_server_cmd)
 
   return ld
