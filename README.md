@@ -7,6 +7,10 @@
 
 `sudo apt install python3-colcon-common-extensions`
 
+# Transform
+output of the [odom] -> [base_footprint] transform by typing the following command:
+`ros2 run tf2_ros tf2_echo odom base_footprint`
+
 # Credit
 
 Automatic Addison
