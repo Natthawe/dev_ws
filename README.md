@@ -9,7 +9,6 @@
 
 # Credit
 Automatic Addison
-------
 
 [3D Rotation Converter](https://www.andre-gaschler.com/rotationconverter/)
 
