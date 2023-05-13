@@ -20,7 +20,7 @@ open file:
 
 `evince frames.pdf`
 
-[Frames.pdf](./tf2_tools/frames_2023-05-13_10.18.15.pdf)
+[Frames.pdf](./tf2_tools/frames_2023-05-13_12.49.31.pdf)
 
 # Credit
 Automatic Addison
@@ -62,6 +62,8 @@ Automatic Addison
 Nav2
 ------
 [Setting Up Odometry](https://navigation.ros.org/setup_guides/odom/setup_odom.html)
+
+[Configuration Guide](https://navigation.ros.org/configuration/index.html)
 
 REP
 ------
