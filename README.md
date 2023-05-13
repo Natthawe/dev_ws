@@ -7,9 +7,17 @@
 
 `sudo apt install python3-colcon-common-extensions`
 
-# Transform
-output of the **odom** -> **base_footprint** transform by typing the following command:
-`ros2 run tf2_ros tf2_echo odom base_footprint`
+# Transform | Coordinate
+Output of the **odom** -> **base_footprint** transform by typing the following command:
+    `ros2 run tf2_ros tf2_echo odom base_footprint`
+
+To see the coordinate frames, type the following command in a terminal window.
+    `ros2 run tf2_tools view_frames`
+
+open file:
+    `evince frames.pdf`
+
+![](tf2_tools/frames_2023-05-13_10.18.15.pdf)
 
 # Credit
 Automatic Addison
