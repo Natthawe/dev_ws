@@ -182,6 +182,33 @@ def generate_launch_description():
                         'default_bt_xml_filename': default_bt_xml_filename,
                         'autostart': autostart}.items())
 
+  # UNCOMMENT HERE FOR KEEPOUT DEMO
+  start_lifecycle_manager_cmd = Node(
+    package='nav2_lifecycle_manager',
+    executable='lifecycle_manager',
+    name='lifecycle_manager_costmap_filters',
+    output='screen',
+    emulate_tty=True,
+    parameters=[{'use_sim_time': use_sim_time},
+                {'autostart': True},
+                {'node_names': ['filter_mask_server', 'costmap_filter_info_server']}])
+
+  start_map_server_cmd = Node(
+    package='nav2_map_server',
+    executable='map_server',
+    name='filter_mask_server',
+    output='screen',
+    emulate_tty=True,
+    parameters=[params_file])
+
+  start_costmap_filter_info_server_cmd = Node(
+    package='nav2_map_server',
+    executable='costmap_filter_info_server',
+    name='costmap_filter_info_server',
+    output='screen',
+    emulate_tty=True,
+    parameters=[params_file])
+
   # Create the launch description and populate
   ld = LaunchDescription()
 
@@ -209,5 +236,8 @@ def generate_launch_description():
   ld.add_action(start_robot_state_publisher_cmd)
   ld.add_action(start_rviz_cmd)
   ld.add_action(start_ros2_navigation_cmd)
+  # ld.add_action(start_lifecycle_manager_cmd)
+  # ld.add_action(start_map_server_cmd)
+  # ld.add_action(start_costmap_filter_info_server_cmd)
 
   return ld
