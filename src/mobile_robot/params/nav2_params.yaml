@@ -146,48 +146,48 @@ controller_server:
       xy_goal_tolerance: 0.25
       yaw_goal_tolerance: 0.25
       
-    # DWB parameters
-    FollowPath:
-      plugin: "dwb_core::DWBLocalPlanner"
-      debug_trajectory_details: True
-      min_vel_x: 0.0
-      min_vel_y: 0.0
-      max_vel_x: 0.6
-      max_vel_y: 0.0
-      max_vel_theta: 0.6
-      min_speed_xy: 0.0
-      max_speed_xy: 0.6
-      min_speed_theta: 0.0
-      # Add high threshold velocity for turtlebot 3 issue.
-      # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
-      acc_lim_x: 2.5
-      acc_lim_y: 0.0
-      acc_lim_theta: 3.2
-      decel_lim_x: -2.5
-      decel_lim_y: 0.0
-      decel_lim_theta: -3.2
-      vx_samples: 20
-      vy_samples: 5
-      vtheta_samples: 20
-      sim_time: 1.7
-      linear_granularity: 0.05
-      angular_granularity: 0.025
-      transform_tolerance: 0.2
-      xy_goal_tolerance: 0.25
-      trans_stopped_velocity: 0.25
-      short_circuit_trajectory_evaluation: True
-      stateful: True
-      critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
-      BaseObstacle.scale: 0.02
-      PathAlign.scale: 32.0
-      PathAlign.forward_point_distance: 0.1
-      GoalAlign.scale: 24.0
-      GoalAlign.forward_point_distance: 0.1
-      PathDist.scale: 32.0
-      GoalDist.scale: 24.0
-      RotateToGoal.scale: 32.0
-      RotateToGoal.slowing_factor: 5.0
-      RotateToGoal.lookahead_time: -1.0
+    # # DWB parameters
+    # FollowPath:
+    #   plugin: "dwb_core::DWBLocalPlanner"
+    #   debug_trajectory_details: True
+    #   min_vel_x: 0.0
+    #   min_vel_y: 0.0
+    #   max_vel_x: 0.6
+    #   max_vel_y: 0.0
+    #   max_vel_theta: 0.6
+    #   min_speed_xy: 0.0
+    #   max_speed_xy: 0.6
+    #   min_speed_theta: 0.0
+    #   # Add high threshold velocity for turtlebot 3 issue.
+    #   # https://github.com/ROBOTIS-GIT/turtlebot3_simulations/issues/75
+    #   acc_lim_x: 2.5
+    #   acc_lim_y: 0.0
+    #   acc_lim_theta: 3.2
+    #   decel_lim_x: -2.5
+    #   decel_lim_y: 0.0
+    #   decel_lim_theta: -3.2
+    #   vx_samples: 20
+    #   vy_samples: 5
+    #   vtheta_samples: 20
+    #   sim_time: 1.7
+    #   linear_granularity: 0.05
+    #   angular_granularity: 0.025
+    #   transform_tolerance: 0.2
+    #   xy_goal_tolerance: 0.25
+    #   trans_stopped_velocity: 0.25
+    #   short_circuit_trajectory_evaluation: True
+    #   stateful: True
+    #   critics: ["RotateToGoal", "Oscillation", "BaseObstacle", "GoalAlign", "PathAlign", "PathDist", "GoalDist"]
+    #   BaseObstacle.scale: 0.02
+    #   PathAlign.scale: 32.0
+    #   PathAlign.forward_point_distance: 0.1
+    #   GoalAlign.scale: 24.0
+    #   GoalAlign.forward_point_distance: 0.1
+    #   PathDist.scale: 32.0
+    #   GoalDist.scale: 24.0
+    #   RotateToGoal.scale: 32.0
+    #   RotateToGoal.slowing_factor: 5.0
+    #   RotateToGoal.lookahead_time: -1.0
 
     # #RPP
     # FollowPath:
@@ -217,97 +217,95 @@ controller_server:
     #   max_robot_pose_search_dist: 10.0
     #   use_interpolation: false
 
-    # # TEB parameters
-    # FollowPath:
-    #   plugin: "teb_local_planner::TebLocalPlannerROS"
-    #   footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
-    #     type: "circular"
-    #     radius: 0.45
-    #     # type: "polygon"
-    #     # vertices: "[[0.4,0.3],[0.4,-0.3],[-0.4,-0.3],[-0.4,0.3]]"
+    # TEB parameters
+    FollowPath:
+      plugin: "teb_local_planner::TebLocalPlannerROS"
+      footprint_model: # types: "point", "circular", "two_circles", "line", "polygon"
+        type: "circular"
+        radius: 0.45
+        # type: "polygon"
+        # vertices: "[[0.4,0.3],[0.4,-0.3],[-0.4,-0.3],[-0.4,0.3]]"
 
-    #   # // Trajectory
-    #   teb_autoresize: True
-    #   dt_ref: 0.3
-    #   dt_hysteresis: 0.1
-    #   min_samples: 3
-    #   max_samples: 20      
-    #   global_plan_overwrite_orientation: true
-    #   allow_init_with_backwards_motion: false #(this is only recommended if the robot is equipped with rear sensors)
-    #   max_global_plan_lookahead_dist: 1.5  
-    #   feasibility_check_no_poses: 5
-    #   publish_feedback: true
-    #   control_look_ahead_poses: 5
-    #   # force_reinit_new_goal_dist: 1.0
-    #   # global_plan_viapoint_sep: -1.0 # การแยกระหว่างแต่ละจุดผ่านที่ต่อเนื่องกันสองจุดที่ดึงมาจากแผนสากล (ถ้าเป็นลบ: ปิดใช้งาน)
-    #   # via_points_ordered: false # หากเป็นจริง ผู้วางแผนจะปฏิบัติตามลำดับของ via-points in the storage container
-    #   # global_plan_prune_distance: 1.0 # ระยะห่างระหว่างหุ่นยนต์และ viapoint ของ global plan
-    #   # exact_arc_length: true #หากเป็นจริง planner จะใช้ความยาวส่วนโค้งที่แน่นอนในการคำนวณความเร็ว ความเร่ง และอัตราการเลี้ยว [-> เวลาซีพียูที่เพิ่มขึ้น] มิฉะนั้นจะใช้การประมาณแบบยุคลิด      
+      # // Trajectory
+      teb_autoresize: True
+      dt_ref: 0.3
+      dt_hysteresis: 0.1
+      min_samples: 3
+      max_samples: 20      
+      global_plan_overwrite_orientation: true
+      allow_init_with_backwards_motion: false #(this is only recommended if the robot is equipped with rear sensors)
+      max_global_plan_lookahead_dist: 1.0  
+      feasibility_check_no_poses: 5
+      publish_feedback: true
+      control_look_ahead_poses: 5
+      # force_reinit_new_goal_dist: 1.0
+      # global_plan_viapoint_sep: -1.0 # การแยกระหว่างแต่ละจุดผ่านที่ต่อเนื่องกันสองจุดที่ดึงมาจากแผนสากล (ถ้าเป็นลบ: ปิดใช้งาน)
+      # via_points_ordered: false # หากเป็นจริง ผู้วางแผนจะปฏิบัติตามลำดับของ via-points in the storage container
+      # global_plan_prune_distance: 1.0 # ระยะห่างระหว่างหุ่นยนต์และ viapoint ของ global plan
+      # exact_arc_length: true #หากเป็นจริง planner จะใช้ความยาวส่วนโค้งที่แน่นอนในการคำนวณความเร็ว ความเร่ง และอัตราการเลี้ยว [-> เวลาซีพียูที่เพิ่มขึ้น] มิฉะนั้นจะใช้การประมาณแบบยุคลิด      
 
-    # # Robot
-    #   max_vel_x: 0.5
-    #   max_vel_x_backwards: 0.1
-    #   max_vel_theta: 0.3
-    #   acc_lim_x: 2.5
-    #   acc_lim_theta: 3.2
-    #   is_footprint_dynamic: True
-    #   min_turning_radius: 0.33 #รัศมีวงเลี้ยวต่ำสุดของหุ่นยนต์คาร์ไลค์ (ตั้งค่าเป็นศูนย์สำหรับหุ่นยนต์ดิฟไดรฟ์)
-    #   wheelbase: 0.52 #ระยะห่างระหว่างเพลาล้อหลังกับเพลาหน้า
+    # Robot
+      max_vel_x: 0.8
+      max_vel_x_backwards: 0.1
+      max_vel_theta: 0.6
+      acc_lim_x: 2.5
+      acc_lim_theta: 3.2
+      is_footprint_dynamic: True
+      # min_turning_radius: 0.33 #รัศมีวงเลี้ยวต่ำสุดของหุ่นยนต์คาร์ไลค์ (ตั้งค่าเป็นศูนย์สำหรับหุ่นยนต์ดิฟไดรฟ์)
+      # wheelbase: 0.52 #ระยะห่างระหว่างเพลาล้อหลังกับเพลาหน้า
 
-    # # GoalTolerance
-    #   xy_goal_tolerance: 0.25
-    #   yaw_goal_tolerance: 0.25
-    #   free_goal_vel: false 
+    # GoalTolerance
+      xy_goal_tolerance: 0.25
+      yaw_goal_tolerance: 0.25
+      free_goal_vel: false 
 
-    # # Obstacles
-    #   min_obstacle_dist: 0.3    
-    #   inflation_dist: 0.55
-    #   dynamic_obstacle_inflation_dist: 0.55
-    #   include_dynamic_obstacles: true
-    #   include_costmap_obstacles: true
-    #   costmap_obstacles_behind_robot_dist: 2.0
-    #   obstacle_poses_affected: 25
-    #   costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
-    #   costmap_converter_spin_thread: true
-    #   costmap_converter_rate: 5
+    # Obstacles
+      min_obstacle_dist: 0.3    
+      inflation_dist: 0.55
+      dynamic_obstacle_inflation_dist: 0.55
+      include_dynamic_obstacles: true
+      include_costmap_obstacles: true
+      costmap_obstacles_behind_robot_dist: 1.5
+      obstacle_poses_affected: 25
+      costmap_converter_plugin: "costmap_converter::CostmapToPolygonsDBSMCCH"
+      costmap_converter_spin_thread: true
+      costmap_converter_rate: 5
 
-    # # Optimization
-    #   # no_inner_iterations: 5
-    #   # no_outer_iterations: 4
-    #   optimization_activate: true
-    #   weight_max_vel_x: 0.5 #2.0
-    #   weight_max_vel_theta: 0.5 #2.0
-    #   weight_acc_lim_x: 0.5 #1.0
-    #   weight_acc_lim_theta: 2.0
-    #   weight_kinematics_nh: 2000.0
-    #   weight_kinematics_forward_drive: 10000.0
-    #   weight_kinematics_turning_radius: 0.3
-    #   weight_optimaltime: 1.0 # must be > 0
-    #   weight_obstacle: 10.0
-    #   weight_inflation: 1.0
-    #   weight_dynamic_obstacle: 1.0
-    #   weight_dynamic_obstacle_inflation: 1.0
-    #   weight_viapoint: 1.0
-    #   penalty_epsilon: 0.1
-    #   weight_adapt_factor: 2.0
+    # Optimization
+      optimization_activate: true
+      weight_max_vel_x: 0.5 #2.0
+      weight_max_vel_theta: 0.5 #2.0
+      weight_acc_lim_x: 0.5 #1.0
+      weight_acc_lim_theta: 1.0
+      weight_kinematics_nh: 2000.0
+      weight_kinematics_forward_drive: 10000.0
+      weight_kinematics_turning_radius: 0.0
+      weight_optimaltime: 1.0 # must be > 0
+      weight_obstacle: 50.0
+      weight_inflation: 100.0
+      weight_dynamic_obstacle: 1.0
+      weight_dynamic_obstacle_inflation: 1.0
+      weight_viapoint: 100.0
+      penalty_epsilon: 0.1
+      weight_adapt_factor: 2.0
 
-    # # Homotopy Class Planner
-    #   enable_homotopy_class_planning: false
-    #   enable_multithreading: false
-    #   max_number_classes: 4
-    #   selection_cost_hysteresis: 5.0
-    #   selection_obst_cost_scale: 1.0
-    #   selection_viapoint_cost_scale: 1.0
+    # Homotopy Class Planner
+      enable_homotopy_class_planning: false
+      enable_multithreading: false
+      max_number_classes: 4
+      selection_cost_hysteresis: 5.0
+      selection_obst_cost_scale: 1.0
+      selection_viapoint_cost_scale: 1.0
 
-    #   roadmap_graph_no_samples: 15
-    #   roadmap_graph_area_width: 6.0
-    #   roadmap_graph_area_length_scale: 1.0
+      roadmap_graph_no_samples: 15
+      roadmap_graph_area_width: 6.0
+      roadmap_graph_area_length_scale: 1.0
       
-    #   h_signature_prescaler: 0.6
-    #   h_signature_threshold: 0.1
-    #   obstacle_keypoint_offset: 0.1
-    #   obstacle_heading_threshold: 0.45 
-    #   visualize_hc_graph: true      
+      h_signature_prescaler: 0.6
+      h_signature_threshold: 0.1
+      obstacle_keypoint_offset: 0.1
+      obstacle_heading_threshold: 0.45 
+      visualize_hc_graph: true      
 
 local_costmap:
   local_costmap:
