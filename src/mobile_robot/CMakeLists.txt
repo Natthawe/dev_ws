@@ -7,13 +7,23 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-# uncomment the following section in order to fill in
-# further dependencies manually.
-# find_package(<dependency> REQUIRED)
+find_package(ament_cmake_python REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(rclpy REQUIRED)
+
 
 install(
-  DIRECTORY config launch maps meshes models params rviz worlds
+  DIRECTORY config launch maps meshes models params rviz worlds scripts mobile_robot
   DESTINATION share/${PROJECT_NAME}
+)
+
+# Install Python modules
+ament_python_install_package(${PROJECT_NAME})
+
+# Install Python executables
+install(PROGRAMS
+  scripts/nav2_through_poses.py
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 ament_package()

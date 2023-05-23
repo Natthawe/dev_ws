@@ -245,7 +245,7 @@ controller_server:
       # exact_arc_length: true #หากเป็นจริง planner จะใช้ความยาวส่วนโค้งที่แน่นอนในการคำนวณความเร็ว ความเร่ง และอัตราการเลี้ยว [-> เวลาซีพียูที่เพิ่มขึ้น] มิฉะนั้นจะใช้การประมาณแบบยุคลิด      
 
     # Robot
-      max_vel_x: 0.8
+      max_vel_x: 0.6
       max_vel_x_backwards: 0.1
       max_vel_theta: 0.6
       acc_lim_x: 2.5
@@ -260,9 +260,9 @@ controller_server:
       free_goal_vel: false 
 
     # Obstacles
-      min_obstacle_dist: 0.3    
-      inflation_dist: 0.55
-      dynamic_obstacle_inflation_dist: 0.55
+      min_obstacle_dist: 0.7    
+      inflation_dist: 0.66
+      dynamic_obstacle_inflation_dist: 0.66
       include_dynamic_obstacles: true
       include_costmap_obstacles: true
       costmap_obstacles_behind_robot_dist: 1.5
@@ -285,7 +285,7 @@ controller_server:
       weight_inflation: 100.0
       weight_dynamic_obstacle: 1.0
       weight_dynamic_obstacle_inflation: 1.0
-      weight_viapoint: 100.0
+      weight_viapoint: 1.0
       penalty_epsilon: 0.1
       weight_adapt_factor: 2.0
 
@@ -325,8 +325,8 @@ local_costmap:
       # filters: ["keepout_filter", "inflation_layer"]      
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.66
+        cost_scaling_factor: 10.0
+        inflation_radius: 0.8
       voxel_layer:
         plugin: "nav2_costmap_2d::VoxelLayer"
         enabled: True
@@ -371,7 +371,7 @@ global_costmap:
       global_frame: map
       robot_base_frame: base_link
       use_sim_time: True
-      robot_radius: 0.5
+      robot_radius: 0.55
       resolution: 0.05
       track_unknown_space: true
       plugins: ["static_layer", "obstacle_layer", "inflation_layer"]
@@ -396,8 +396,8 @@ global_costmap:
         map_subscribe_transient_local: True
       inflation_layer:
         plugin: "nav2_costmap_2d::InflationLayer"
-        cost_scaling_factor: 3.0
-        inflation_radius: 0.66
+        cost_scaling_factor: 10.0
+        inflation_radius: 0.8
       always_send_full_costmap: True
 
       # UNCOMMENT NEXT 4 LINES HERE FOR KEEPOUT DEMO
