@@ -11,17 +11,18 @@
 int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
-  auto node = rclcpp::Node::make_shared("points_and_lines");
+  auto node = rclcpp::Node::make_shared("lines");
   auto marker_pub = node->create_publisher<visualization_msgs::msg::Marker>(
     "visualization_marker", 10);
   rclcpp::Rate loop_rate(30);
-
+  RCLCPP_INFO(node->get_logger(), "Ready");
+  
   float f = 0.0f;
   while (rclcpp::ok()) {
     visualization_msgs::msg::Marker line_strip;
-    line_strip.header.frame_id = "/frame";
+    line_strip.header.frame_id = "base_link";
     line_strip.header.stamp = rclcpp::Clock().now();
-    line_strip.ns = "points_and_lines";
+    line_strip.ns = "lines";
     line_strip.action = visualization_msgs::msg::Marker::ADD;
 
     line_strip.id = 1;

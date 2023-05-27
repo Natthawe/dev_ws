@@ -33,6 +33,12 @@ ament_export_dependencies(
     "geometry_msgs"
     "visualization_msgs")    
 
+  add_executable(shapes src/shapes.cpp)
+  ament_target_dependencies(shapes
+    "rclcpp"
+    "geometry_msgs"
+    "visualization_msgs")     
+
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
   # the following line skips the linter which checks for copyrights
@@ -49,6 +55,7 @@ install(TARGETS
   basic_shapes
   points_and_lines
   lines
+  shapes
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
