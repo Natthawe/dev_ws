@@ -48,7 +48,7 @@ int main(int argc, char ** argv)
     for (float i = 0; i < 11; i++){
       float y = 0.0;
       geometry_msgs::msg::Point p;
-      p.x = (int32_t)i;
+      p.x = i;
       p.y = y;
       line_strip.points.push_back(p);
     }
@@ -67,7 +67,7 @@ int main(int argc, char ** argv)
     for (float i = 10; i > -1; i--){
       float y = 10.0;
       geometry_msgs::msg::Point p;
-      p.x = (int32_t)i;
+      p.x = i;
       p.y = y;
       line_strip.points.push_back(p);
     }    
@@ -76,7 +76,6 @@ int main(int argc, char ** argv)
     for (float i = 10; i > -1; i--){
       float y = i;
       geometry_msgs::msg::Point p;
-      // p.x = (int32_t)i;
       p.y = y;
       line_strip.points.push_back(p);
     } 
