@@ -74,3 +74,7 @@ WIKI
 [Differential wheeled robot](https://en.wikipedia.org/wiki/Differential_wheeled_robot)
 
 [robot localization](https://docs.ros.org/en/noetic/api/robot_localization/html/state_estimation_nodes.html) or [sample ekf.yaml file](https://github.com/cra-ros-pkg/robot_localization/blob/humble-devel/params/ekf.yaml)
+
+
+# visualization_marker
+    ros2 run visualization_marker lines

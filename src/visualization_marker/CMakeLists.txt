@@ -27,8 +27,8 @@ ament_export_dependencies(
     "geometry_msgs"
     "visualization_msgs")
 
-  add_executable(points src/points.cpp)
-  ament_target_dependencies(points
+  add_executable(lines src/lines.cpp)
+  ament_target_dependencies(lines
     "rclcpp"
     "geometry_msgs"
     "visualization_msgs")    
@@ -48,7 +48,7 @@ endif()
 install(TARGETS
   basic_shapes
   points_and_lines
-  points
+  lines
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
