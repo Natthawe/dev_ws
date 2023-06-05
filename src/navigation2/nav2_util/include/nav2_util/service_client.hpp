@@ -46,7 +46,9 @@ public:
     callback_group_executor_.add_callback_group(callback_group_, node_->get_node_base_interface());
     client_ = node_->create_client<ServiceT>(
       service_name,
-      rclcpp::SystemDefaultsQoS(),
+      // rclcpp::SystemDefaultsQoS(),
+      // rmw_qos_profile_services_default,
+      rclcpp::ServicesQoS().get_rmw_qos_profile(),
       callback_group_);
   }
 
